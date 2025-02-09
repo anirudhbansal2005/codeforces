@@ -1,23 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
+void divCalc(long long& y, long long& x){
+        if(y%x==0){
+            cout<<0<<"\n";
+        }
+        else {
+                cout<<x - (y % x)<<"\n";    
+           }
+        
+}
 int main(){
     int cases;
+    long long a, b;
     cin >> cases;
-    int a, b;
-    int count=0;
     for(int i=0; i<cases; i++){
         cin >> a >> b;
-        for(int j=1; j>0; j++){
-            if((a%b)!=0){
-                a++;
-                count++;
-            }
-            else {
-                cout<<count<<"\n";
-                count=0;
-                break;
-            }
-        }
+        divCalc(a, b);
     }
-    
 }

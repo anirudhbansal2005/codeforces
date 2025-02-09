@@ -1,27 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main(){
-    int levels;
-    cin >> levels;
-    int temp;
-    int j=1;
-    int count=0;
-    for(int i=1; i>0; i++){
+void littleX(set<int>& x){
+    int p, temp;
+    cin >> p;
+    for(int i=0; i<p; i++){
         cin >> temp;
-        if(temp==j){
-            if(j<levels){
-                j++;
-                count++;
-            }
-            else{
-                break;
-            }
-        }
+        x.insert(temp);
     }
-    if(count==levels){
+}
+void littleY(set<int>& x){
+    int p, temp;
+    cin >> p;
+    for(int i=0; i<p; i++){
+        cin >> temp;
+        x.insert(temp);
+    }    
+}
+
+int main(){
+    int level;
+    cin >> level;
+    set<int> m;
+    littleX(m);
+    littleY(m);
+    if(m.size()==level){
         cout<<"I become the guy.";
     }
-    else{
+    else {
         cout<<"Oh, my keyboard!";
     }
 }
