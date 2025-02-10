@@ -1,21 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+void balloonCalc(int x, string y){
+    set<char> z(y.begin(), y.end());
+    int t = z.size();
+    cout<<(t*2)+(x-t)<<"\n";
+}
 int main(){
     int cases;
     cin >> cases;
-    int problems;
-    string ques;
-    string seen;
-    int total=0;
+    int length;
+    string str;
     for(int i=0; i<cases; i++){
-        cin >> problems;
-        cin >> ques;
-        sort(ques.begin(), ques.end());
-        cout<<"\n"<<ques;
-        for(int j=0; j<problems; j++){
-            
-            seen = ques[i]
-        }
-    cout<<total;    
+        cin >> length >> str;
+        balloonCalc(length, str);
     }
+
 }
