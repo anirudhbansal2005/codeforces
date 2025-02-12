@@ -1,15 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-string checkTask(const int& x,string& y){
-    string s = "YES";
+bool checkTask(const int& x, string& y){
+    int k = 1;
     for(int i=0; i<x; i++){
-        for(int j=1; j<x; i++)
+        for(int j=k; j<x; j++)
         if(y[i]==y[j]){
-            s = "NO";
-            return s;
+            return false;
         }
+        k++;
     }
-    return s;
+    return true;
 }
 int main(){
     int cases;
@@ -20,7 +20,12 @@ int main(){
         cin >> length >> str;
         str.erase(unique(str.begin(), str.end()), str.end());
         length = str.length();
-        cout<<checkTask(length, str)<<"\n";
+        if(checkTask(length, str)){
+            cout<<"YES\n";
+        }
+        else {
+            cout<<"NO\n";
+        }
         
     }
 }
