@@ -1,15 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 void uniqueNumber(vector<int> x, int y){
-    for(int j=0; j<y; j++){
-        for(int i=j+1; i<y; i++){
-        if(x[j]!=x[i]){
+    for(int i=0; i<y-1; i++){
+        if(x[i]!=x[i+1]){
            cout<<i<<"\n";
            break;      
             }
         }
     }
-}
 vector<int> initializeVector(int x){
     vector<int> y(x);
     for(int i=0; i<x; i++){
