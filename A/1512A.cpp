@@ -1,36 +1,41 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int indexOfUniqueNumber(vector<int> x, int y){
-    for(int i=0; i<x.size(); i++){
-        if(x[i]==y){
-            return i;
+
+int findUniqueIndex(const vector<int>& x) {
+    unordered_map<int, int> freq;  // Stores frequency of each number
+    unordered_map<int, int> index; // Stores first occurrence index
+
+    // First pass: Count frequencies and store first index
+    for (int i = 0; i < x.size(); i++) {
+        freq[x[i]]++;  // Count occurrences
+        if (index.find(x[i]) == index.end()) {
+            index[x[i]] = i + 1; // Store 1-based index
         }
-    }    
-}
-int uniqueNumber(vector<int> x, int y){
-    sort(x.begin(), x.end());
-    unique(x.begin(), x.end());
-    if(x[0] != x[1] && x[0]!=x[2]){
-        return x[0];
     }
-    else {
-        return x[1];
+
+    // Second pass: Find the unique number and return its index
+    for (const auto& num : x) {
+        if (freq[num] == 1) return index[num];  // Return the first occurrence index of the unique number
     }
+
+    return -1; // This should never be reached based on the problem constraints
 }
-vector<int> initializeVector(int x){
-    vector<int> y(x);
-    for(int i=0; i<x; i++){
-        cin >> y[i];
-    }
-    return y; 
-}
-int main(){
+
+int main() {
     int t;
     cin >> t;
-    for(int i=0; i<t; i++){
-        int a;
-        cin >> a;
-        vector<int> b = initializeVector(a);
-        cout<<indexOfUniqueNumber(b, uniqueNumber(b, a))+1<<"\n";
+
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+
+        for (int& num : arr) {
+            cin >> num;
+        }
+
+        cout << findUniqueIndex(arr) << "\n";
     }
+
+    return 0;
 }
