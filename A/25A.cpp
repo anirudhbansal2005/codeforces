@@ -18,11 +18,13 @@ int main(){
         if(even<odd){
             if(temp[i]%2==0){
                 cout<<i+1;
+                break;
             }
         }
         else {
             if(temp[i]%2!=0){
                 cout<<i+1;
+                break;
             }
         }
     }
