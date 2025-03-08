@@ -6,7 +6,7 @@ void evenNum(int x){
     cout<<a<< " "<< b;
 }
 void OddNum(int x){
-    int a = x-9;
+    int a = (x+1)/2;
     int b = x-a;
     cout<<a<<" "<<b;
 }
