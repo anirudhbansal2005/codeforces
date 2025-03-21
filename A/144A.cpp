@@ -1,41 +1,29 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-void swapRequired(int& x, int& y, vector<int>& z){
-    int count = 0;
-    for(int i=z.size(); i>0; i--){
-        if(x==z[i]){
-            swap(z[i-1], z[i]);
-            count++;
-        }
-    }
-    for(int i=0; i<z.size(); i++){
-        if(y==z[i] && i<z.size()-1){
-            if(z[i]==z[i+1]){
-                continue;
-            }
-            else {
-                swap(z[i], z[i+1]);
-                count++;
-            }
-        }
-    }
-    cout<<count;
-}
-void minMax(vector<int>& x){
-    int mx = INT_MIN, mn = INT_MAX;
-    for(int i=0; i<x.size(); i++){
-        mx = max(mx, x[i]);
-        mn = min(mn, x[i]);
-    }
-    swapRequired(mx, mn, x);
 
-}
-int main(){
-    int vets;
-    cin >> vets;
-    vector<int> t(vets);
-    for(int i=0; i<vets; i++){
-        cin >> t[i];
+int main() {
+    int n;
+    cin >> n;
+    vector<int> heights(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> heights[i];
     }
-    minMax(t);
+
+    // Finding the position of the tallest soldier (max height)
+    int maxIndex = max_element(heights.begin(), heights.end()) - heights.begin();
+    // Finding the position of the shortest soldier (min height)
+    int minIndex = min_element(heights.rbegin(), heights.rend()) - heights.rbegin();
+    minIndex = n - 1 - minIndex;  // Adjusting for reverse iterator indexing
+
+    // Time required = swaps to bring max to front + swaps to bring min to end
+    int swaps = maxIndex + (n - 1 - minIndex);
+
+    // If the max comes before min, one extra swap is saved
+    if (maxIndex > minIndex) {
+        swaps--;
+    }
+
+    cout << swaps << endl;
+    return 0;
 }
