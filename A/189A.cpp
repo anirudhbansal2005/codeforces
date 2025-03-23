@@ -5,7 +5,7 @@ int ribbonCut(int x, vector<int> y){
     if(y[0]+y[1]+y[2]==x){
         return 3;
     }
-    else if (y[0]+y[1]==x || y[1]+y[2]==x || y[0]+y[3]==x){
+    else if (y[0]+y[1]==x || y[1]+y[2]==x || y[2]+y[3]==x || y[0]+y[3]==x){
         return 2;
     }
     return 1;
