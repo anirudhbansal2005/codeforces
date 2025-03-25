@@ -15,7 +15,7 @@ int main(){
         pass[i]=passenger;
     }
     int mx = pass[0];
-    for(int k=1; k<(sizeof(pass)/4); k++){
+    for(int k=1; k<(sizeof(pass)/+4); k++){
         if(mx<pass[k]){
             mx = pass[k];
         }
