@@ -25,6 +25,7 @@ int main(){
                    temp++;
                 }
                 if(temp==count_two/2){
+                    temp=k+1;
                     break;    
                 }
             }

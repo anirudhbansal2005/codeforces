@@ -9,24 +9,16 @@ bool isSorted(vector<int>& x){
     return false;
 }
 int arrayOperation(vector<int>& x){
-    int count=0;
-    for(int i=0; i<x.size(); i--){
-        if(isSorted(x)){
-            return count;
-        }
-        else {
-            for(int i=0; i<x.size(); i++){
-                if(i%2==0 ){
-                    x[i]++;
-                }
-                else {
-                    x[i]--;
-                }
-                count++;
-            }
+    int mn = INT_MAX;
+    if(isSorted(x)){
+        return 0;
+    }
+    for(int i = 0; i<x.size()-1; i++){
+        if(((abs(x[i]-x[i+1])/2)+1)<mn){
+            mn = ((abs(x[i]-x[i+1])/2)+1);
         }
     }
-    return count;
+    return mn;
 }
 
 int main(){
@@ -36,8 +28,8 @@ int main(){
         int n;
         cin >> n;
         vector<int> l(n);
-        for(int i=0; i<n; i++){
-            cin >> l[i];
+        for(int j=0; j<n; j++){
+            cin >> l[j];
         }
         cout<<arrayOperation(l)<<"\n";
     }
