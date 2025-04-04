@@ -1,22 +1,12 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 int main(){
-    int t;
-    cin >> t;
-    for(int i=0;i<t;i++){
-        int n, m, count = 0, maxCount = 0;
-        cin >> n >> m;
-        char arr[n][m];
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                cin >> arr[i][j];
-                if(arr[i][j]=='#'){
-                    count++;
-                }
-                else {
-                    maxCount = max(count, maxCount);
-                }
-            }
-        }
-    }
+    string s;
+    getline(cin, s);
+    cout<<s[s.size()-1];3 -115.174300
+
+}#include<iostream>
+using namespace std;
+int main(){
+    cout<<"36.103208 "<<"-115.173997";
 }

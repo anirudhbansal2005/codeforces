@@ -10,9 +10,8 @@ int main(){
         for(int j=0; j<n; j++){
             cin >> arr[j];
         }
-        sort(arr.begin(), arr.end());
         for(int k=0; k<n; k++){
-            cout<<arr[k]<<" ";
+            cout<<n+1-arr[k]<<" ";
         }
         cout<<"\n";
     }
