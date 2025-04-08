@@ -41,15 +41,9 @@
 using namespace std;
 
 void removeElement(vector<int>& z, int& count, int y) {
-    bool found = false;  // Track if y exists elsewhere
-
-    // If the element is already zero, don't count it
+    bool found = false;
     if (z[y - 1] == 0) return;
-
-    // Remove the first occurrence
     z[y - 1] = 0;
-
-    // Check for another occurrence and remove it
     for (int i = 0; i < z.size(); i++) {
         if (z[i] == y) {
             z[i] = 0;
@@ -57,10 +51,6 @@ void removeElement(vector<int>& z, int& count, int y) {
             break;
         }
     }
-
-    // Count logic:
-    // - If we found another occurrence, add 2
-    // - Otherwise, add 1
     count += (found ? 2 : 1);
 }
 
@@ -75,13 +65,11 @@ int main() {
             cin >> h[j];
         }
 
-        vector<int> cop = h;  // Make a copy to modify
+        vector<int> cop = h; 
 
         for (int k = 0; k < n; k++) {
             cin >> temp;
             removeElement(cop, count, temp);
-
-            // Stop counting when the entire array is zero
             cout << count << " ";
 
 
